@@ -1,0 +1,141 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @trade.data %>
+</p>
+
+<p>
+  <strong>Esecuzione:</strong>
+  <%= @trade.esecuzione %>
+</p>
+
+<p>
+  <strong>Symbol:</strong>
+  <%= @trade.symbol %>
+</p>
+<% if(@trade.screen.attached?) %>
+  <img src="<%= url_for(@trade.screen)  %>" style="height:auto;width:auto;max-height:200px;">
+<% end %>
+<p>
+  <strong>Sentiment:</strong>
+  <%= @trade.sentiment %>
+</p>
+
+<p>
+  <strong>Macropattern:</strong>
+  <%= @trade.macropattern %>
+</p>
+
+<p>
+  <strong>Zona critica:</strong>
+  <%= @trade.zona_critica %>
+</p>
+
+<p>
+  <strong>Angolo trendline:</strong>
+  <%= @trade.angolo_trendline %>
+</p>
+
+<p>
+  <strong>Nome micro:</strong>
+  <%= @trade.nome_micro %>
+</p>
+
+<p>
+  <strong>Note micro:</strong>
+  <%= @trade.note_micro %>
+</p>
+
+<p>
+  <strong>Note macro:</strong>
+  <%= @trade.note_macro %>
+</p>
+
+<p>
+  <strong>Data micro:</strong>
+  <%= @trade.data_micro %>
+</p>
+
+<p>
+  <strong>Configurazione pivot:</strong>
+  <%= @trade.configurazione_pivot %>
+</p>
+
+<p>
+  <strong>Configurazione daily:</strong>
+  <%= @trade.configurazione_daily %>
+</p>
+
+<p>
+  <strong>Pivot giornalieri:</strong>
+  <%= @trade.pivot_giornalieri %>
+</p>
+
+<p>
+  <strong>Distanza pivot:</strong>
+  <%= @trade.distanza_pivot %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @trade.rating %>
+</p>
+
+<p>
+  <strong>Buy:</strong>
+  <%= @trade.buy %>
+</p>
+
+<p>
+  <strong>Timeframe:</strong>
+  <%= @trade.timeframe %>
+</p>
+
+<p>
+  <strong>Prezzo entrata:</strong>
+  <%= @trade.prezzo_entrata %>
+</p>
+
+<p>
+  <strong>Prezzo sl:</strong>
+  <%= @trade.prezzo_sl %>
+</p>
+
+<p>
+  <strong>Lotti:</strong>
+  <%= @trade.lotti %>
+</p>
+
+<p>
+  <strong>Tp1:</strong>
+  <%= @trade.tp1 %>
+</p>
+
+<p>
+  <strong>Tp2:</strong>
+  <%= @trade.tp2 %>
+</p>
+
+<p>
+  <strong>Risultato:</strong>
+  <%= @trade.risultato %>
+</p>
+
+<p>
+  <strong>Ragioni uscita:</strong>
+  <%= @trade.ragioni_uscita %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @trade.note %>
+</p>
+
+<p>
+  <strong>Confidenza:</strong>
+  <%= @trade.confidenza %>
+</p>
+
+<%= link_to 'Edit', edit_trade_path(@trade) %> |
+<%= link_to 'Back', trades_path %>

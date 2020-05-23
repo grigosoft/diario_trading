@@ -1,0 +1,57 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2020-05-23 08:38:31
+  esecuzione: MyString
+  symbol: MyString
+  sentiment: MyString
+  macropattern: MyString
+  zona_critica: MyString
+  angolo_trendline: 
+  nome_micro: MyString
+  note_micro: MyString
+  note_macro: MyString
+  data_micro: 2020-05-23 08:38:31
+  configurazione_pivot: MyString
+  configurazione_daily: MyString
+  distanza_pivot: 
+  rating: MyString
+  buy: false
+  timeframe: MyString
+  prezzo_entrata: 
+  prezzo_sl: 
+  lotti: 
+  tp1: 
+  tp2: 
+  risultato: MyString
+  ragioni_uscita: MyString
+  note: MyString
+  confidenza: 1
+
+two:
+  data: 2020-05-23 08:38:31
+  esecuzione: MyString
+  symbol: MyString
+  sentiment: MyString
+  macropattern: MyString
+  zona_critica: MyString
+  angolo_trendline: 
+  nome_micro: MyString
+  note_micro: MyString
+  note_macro: MyString
+  data_micro: 2020-05-23 08:38:31
+  configurazione_pivot: MyString
+  configurazione_daily: MyString
+  distanza_pivot: 
+  rating: MyString
+  buy: false
+  timeframe: MyString
+  prezzo_entrata: 
+  prezzo_sl: 
+  lotti: 
+  tp1: 
+  tp2: 
+  risultato: MyString
+  ragioni_uscita: MyString
+  note: MyString
+  confidenza: 1

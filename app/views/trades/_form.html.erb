@@ -1,0 +1,230 @@
+<%= form_with(model: trade, local: true) do |form| %>
+  <% if trade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trade.errors.count, "error") %> prohibited this trade from being saved:</h2>
+
+      <ul>
+        <% trade.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :data %>
+    <%= form.datetime_select :data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :esecuzione %>
+    <%= form.select(:esecuzione, [['', ''], ['Effettuato', 'effettuato'], ['Mancato', 'mancato'], ['Fuori strategia', 'fuori']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :symbol %>
+    <%= form.text_field :symbol, list: "symbols" %>
+    <datalist id="symbols">
+      <option value="EURUSD">
+      <option value="EURJPY">
+      <option value="GBPUSD">
+      <option value="GBPCHF">
+      <option value="GBPJPY">
+      <option value="XAUUSD">
+      <option value="US500">
+    </datalist>
+  </div>
+
+  <div class="field">
+    <%= form.label :sentiment %>
+    <%= form.select(:sentiment, [['', ''], ['Rialzista', 'Rialzista'], ['Rialzista leggero', 'Rialzista leggero'], ['Neutro', 'Neutro'], ['Ribassista leggero', 'Ribassista leggero'], ['Ribassista', 'Ribassista']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :macropattern %>
+    <%= form.text_field :macropattern, list: "macropatterns" %>
+    <datalist id="macropatterns">
+      <option value="Triangolo">
+      <option value="Triangolo rettangolo favorevole">
+      <option value="Triangolo rettangolo sfavorevole">
+      <option value="Triangolo isoscele">
+      <option value="Rettangolo">
+      <option value="Bandiera">
+      <option value="Testa-spalle">
+      <option value="Round-bottom">
+    </datalist>
+  </div>
+
+  <div class="field">
+    <%= form.label :note_macro %>
+    <%= form.text_field :note_macro, list: "note_macros" %>
+    <datalist id="note_macros">
+      <option value="Macropattern non ben definito">
+      <option value="Trendline Macro leggermente forate">
+      <option value="Macro piccolo">
+      <option value="Macro enorme">
+      <option value="Regola del 2x scarsa (NON rispettata)">
+    </datalist>
+  </div>
+
+  <div class="field">
+    <%= form.label :zona_critica %>
+    <%= form.select(:zona_critica, [['', ''], ['Davanti al Trade', 'davanti'], ['Dietro al Trade', 'dietro'], ['Sopra alla master', 'sorpa']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label "#{:angolo_trendline} (<25° >320°)" %>
+    <%= form.text_field :angolo_trendline %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nome_micro %>
+    <%= form.select(:nome_micro, [['', ''],['Porcospino', 'Porcospino'],['Rino', 'Rino'],['Chiesa', 'Chiesa'],['Scoiattolo', 'Scoiattolo'],['Scoiattolo inverso', 'Scoiattolo inverso'],['Gallina', 'Gallina'],['Pinguino', 'Pinguino'],['Pettine', 'Pettine'],['Squalo', 'Squalo'],['ABC Rino', 'ABC Rino'],['ABC Chiesa', 'ABC Chiesa'],['ABC Scoiattolo', 'ABC Scoiattolo'],['ABC Scoiattolo inverso', 'ABC Scoiattolo inverso'],['ABC Gallina', 'ABC Gallina'],['ABC Pinguino', 'ABC Pinguino']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note_micro %>
+    <%= form.text_field :note_micro, list: "note_micros" %>
+    <datalist id="note_micros">
+      <option value="Perfetto!">
+      <option value="Master piccolina">
+      <option value="Doji sporca">
+      <option value="cresta pettine esagerata">
+      <option value="Regola del 2x scarsa (NON rispettata)">
+    </datalist>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_micro %>
+    <%= form.datetime_select :data_micro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :configurazione_pivot %>
+    <%= form.select(:configurazione_pivot, [['', ''],['Rialzista', 'Rialzista'],['Neutra', 'Neutra'],['Ribassista', 'Ribassista']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :configurazione_daily %>
+    <%= form.select(:configurazione_daily, [['', ''],['Testato', 'Testato'],['NON testato a favore', 'NON testato a favore'],['NON testato sfavorevole', 'NON testato sfavorevole']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pivot_giornalieri %>
+    <%= form.select(:pivot_giornalieri, [['', ''],['Zona verde', 'Zona verde'],['Zona gialla', 'Zona gialla'],['Zona rossa', 'Zona rossa']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :distanza_pivot %>
+    <%= form.select(:distanza_pivot, [['', ''],['Vicini', 'vicini'],['Neutra', 'neutra'],['Distanti', 'distanti']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.select(:rating, [['', ''],['AAA', 'AAA'],['AA', 'AA'],['A', 'A']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :buy %>
+    <%= form.check_box :buy %>
+  </div>
+
+  <div class="field">
+    <%= form.label :timeframe %>
+    <%= form.select(:timeframe, [['', ''],['M15', 'M15'],['M30', 'M30'],['H1', 'H1'],['H4', 'H4'],['D1', 'D1']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prezzo_entrata %>
+    <%= form.text_field :prezzo_entrata %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prezzo_sl %>
+    <%= form.text_field :prezzo_sl %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lotti %>
+    <%= form.text_field :lotti %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tp1 %>
+    <%= form.text_field :tp1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tp2 %>
+    <%= form.text_field :tp2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :risultato %>
+    <%= form.select(:risultato, [['', ''],['Win !!!!!', 'win'],['Free Trade', 'freetrade'],['Loss', 'loss'],['Expire', 'expire'],['Close for news', 'close news']]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ragioni_uscita %>
+    <%= form.text_field :ragioni_uscita, list: "ragioni_uscitas" %>
+    <datalist id="ragioni_uscitas">
+      <option value="Min/Max precedenti">
+      <option value="Pivot giornalieri">
+      <option value="Pivot">
+      <option value="Trendline ostacolo">
+      <option value="Minimo da strategia">
+    </datalist>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_field :note %>
+  </div>
+
+  <div class="field">
+    <%= form.label :confidenza %>
+    <%= form.number_field :confidenza %>
+  </div>
+
+  <div class="field">
+    <%= form.label :screen %>
+    <%= form.file_field :screen %>
+    <% if(trade.screen.attached?) %>
+      <img src="<%= url_for(trade.screen)  %>" style="height:auto;width:auto;max-height:200px;">
+    <% end %>
+    <!-- <script language="javascript" type="text/javascript">
+      $(function () {
+          $("trade_test").change(function () {
+              if (typeof (FileReader) != "undefined") {
+                  var dvPreview = $("#dvPreview");
+                  dvPreview.html("");
+                  var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                  $($(this)[0].files).each(function () {
+                      var file = $(this);
+                      if (regex.test(file[0].name.toLowerCase())) {
+                          var reader = new FileReader();
+                          reader.onload = function (e) {
+                              var img = $("<img />");
+                              img.attr("style", "height:100px;width: 100px");
+                              img.attr("src", e.target.result);
+                              dvPreview.append(img);
+                          }
+                          reader.readAsDataURL(file[0]);
+                      } else {
+                          alert(file[0].name + " is not a valid image file.");
+                          dvPreview.html("");
+                          return false;
+                      }
+                  });
+              } else {
+                  alert("This browser does not support HTML5 FileReader.");
+              }
+          });
+      });
+    </script> -->
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

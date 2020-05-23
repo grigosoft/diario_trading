@@ -1,0 +1,2 @@
+json.extract! trade, :id, :data, :esecuzione, :symbol, :sentiment, :macropattern, :zona_critica, :angolo_trendline, :nome_micro, :note_micro, :note_macro, :data_micro, :configurazione_pivot, :configurazione_daily,:pivot_giornalieri, :distanza_pivot, :rating, :buy, :timeframe, :prezzo_entrata, :prezzo_sl, :lotti, :tp1, :tp2, :risultato, :ragioni_uscita, :note, :confidenza, :created_at, :updated_at
+json.url trade_url(trade, format: :json)
