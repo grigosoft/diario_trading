@@ -69,6 +69,6 @@ class TradesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def trade_params
-      params.require(:trade).permit(:data, :esecuzione, :symbol, :sentiment, :macropattern, :zona_critica, :angolo_trendline, :nome_micro, :note_micro, :note_macro, :data_micro, :configurazione_pivot, :configurazione_daily, :distanza_pivot, :pivot_giornalieri, :rating, :buy, :timeframe, :prezzo_entrata, :prezzo_sl, :lotti, :tp1, :tp2, :risultato, :ragioni_uscita, :note, :confidenza,:screen)
+      params.require(:trade).permit(:resa,:resa_tp2,:ostacoli_tp1, :data, :esecuzione, :symbol, :sentiment, :macropattern, :zona_critica, :angolo_trendline, :nome_micro, :note_micro, :note_macro, :data_micro, :configurazione_pivot, :configurazione_daily, :distanza_pivot, :pivot_giornalieri, :rating, :buy, :timeframe, :prezzo_entrata, :prezzo_sl, :lotti, :tp1, :tp2, :risultato, :ragioni_uscita, :note, :confidenza,:screen)
     end
 end

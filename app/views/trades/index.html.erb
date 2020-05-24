@@ -5,27 +5,18 @@
 <table>
   <thead>
     <tr>
-      <th>Data</th>
-      <th>Esecuzione</th>
       <th>Symbol</th>
-      <th>Sentiment</th>
-      <th>Macropattern</th>
-      <th>Zona critica</th>
-      <th>Angolo trendline</th>
+      <th>Timeframe</th>
+      <th>Direzione</th>
       <th>Nome micro</th>
       <th>Data micro</th>
-      <th>Configurazione pivot</th>
-      <th>Configurazione daily</th>
-      <th>Pivot giornalieri</th>
-      <th>Distanza pivot</th>
+      <th>Esecuzione</th>
+      <th>Sentiment</th>
+      <th>Macropattern</th>
       <th>Rating</th>
-      <th>Buy</th>
-      <th>Timeframe</th>
       <th>Prezzo entrata</th>
       <th>Prezzo sl</th>
-      <th>Lotti</th>
-      <th>Tp1</th>
-      <th>Tp2</th>
+      <th>Resa</th>
       <th>Risultato</th>
       <th>Confidenza</th>
       <th colspan="3"></th>
@@ -35,27 +26,18 @@
   <tbody>
     <% @trades.each do |trade| %>
       <tr class="<%= trade.risultato == "" ? "incompleto" : trade.risultato %>">
-        <td><%= trade.data %></td>
-        <td><%= trade.esecuzione %></td>
         <td><%= trade.symbol %></td>
+        <td><%= trade.timeframe %></td>
+        <td><%= trade.buy ? "Buy" : "Sell" %></td>
+        <td><%= trade.nome_micro %></td>
+        <td><%= trade.data_micro.strftime('%F|%H:%M') %></td>
+        <td><%= trade.esecuzione %></td>
         <td><%= trade.sentiment %></td>
         <td><%= trade.macropattern %></td>
-        <td><%= trade.zona_critica %></td>
-        <td><%= trade.angolo_trendline %></td>
-        <td><%= trade.nome_micro %></td>
-        <td><%= trade.data_micro %></td>
-        <td><%= trade.configurazione_pivot %></td>
-        <td><%= trade.configurazione_daily %></td>
-        <td><%= trade.distanza_pivot %></td>
-        <td><%= trade.pivot_giornalieri %></td>
         <td><%= trade.rating %></td>
-        <td><%= trade.buy %></td>
-        <td><%= trade.timeframe %></td>
         <td><%= trade.prezzo_entrata %></td>
         <td><%= trade.prezzo_sl %></td>
-        <td><%= trade.lotti %></td>
-        <td><%= trade.tp1 %></td>
-        <td><%= trade.tp2 %></td>
+        <td><%= trade.resa %>x</td>
         <td><%= trade.risultato %></td>
         <td><%= trade.confidenza %></td>
         <td><%= link_to 'Show', trade %></td>
