@@ -17,6 +17,22 @@
 <% if(@trade.screen.attached?) %>
   <img src="<%= url_for(@trade.screen)  %>" style="height:auto;width:auto;max-height:200px;">
 <% end %>
+<br>
+<% if(@trade.screen_sentiment_mn.attached?) %>
+  <img src="<%= url_for(@trade.screen_sentiment_mn)  %>" style="height:auto;width:auto;max-height:200px;">
+<% end %>
+<% if(@trade.screen_sentiment_w1.attached?) %>
+  <img src="<%= url_for(@trade.screen_sentiment_w1)  %>" style="height:auto;width:auto;max-height:200px;">
+<% end %>
+<% if(@trade.screen_sentiment_d1.attached?) %>
+  <img src="<%= url_for(@trade.screen_sentiment_d1)  %>" style="height:auto;width:auto;max-height:200px;">
+<% end %>
+<% if(@trade.screen_sentiment_h4.attached?) %>
+  <img src="<%= url_for(@trade.screen_sentiment_h4)  %>" style="height:auto;width:auto;max-height:200px;">
+<% end %>
+<% if(@trade.screen_sentiment_h1.attached?) %>
+  <img src="<%= url_for(@trade.screen_sentiment_h1)  %>" style="height:auto;width:auto;max-height:200px;">
+<% end %>
 <p>
   <strong>Sentiment:</strong>
   <%= @trade.sentiment %>
