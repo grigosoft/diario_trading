@@ -6,6 +6,10 @@ class TradesController < ApplicationController
   def index
     @trades = Trade.all
   end
+  
+  def filtro
+    @trades = Trade.all
+  end
 
   # GET /trades/1
   # GET /trades/1.json
