@@ -88,11 +88,12 @@
     <%= form.text_field :macropattern, list: "macropatterns" %>
     <datalist id="macropatterns">
       <option value="Triangolo">
-      <option value="Triangolo rettangolo favorevole">
-      <option value="Triangolo rettangolo sfavorevole">
-      <option value="Triangolo isoscele">
+      <option value="Triangolo sfavorevole">
+      <option value="Triangolo fallito">
       <option value="Rettangolo">
+      <option value="Rettangolo fallito">
       <option value="Bandiera">
+      <option value="Bandiera fallita">
       <option value="Testa-spalle">
       <option value="Round-bottom">
     </datalist>
@@ -122,7 +123,7 @@
 
   <div class="field">
     <%= form.label :nome_micro %>
-    <%= form.select(:nome_micro, [['', ''],['Porcospino', 'Porcospino'],['Rino', 'Rino'],['Chiesa', 'Chiesa'],['Scoiattolo', 'Scoiattolo'],['Scoiattolo inverso', 'Scoiattolo inverso'],['Gallina', 'Gallina'],['Pinguino', 'Pinguino'],['Pettine', 'Pettine'],['Squalo', 'Squalo'],['ABC Rino', 'ABC Rino'],['ABC Chiesa', 'ABC Chiesa'],['ABC Scoiattolo', 'ABC Scoiattolo'],['ABC Scoiattolo inverso', 'ABC Scoiattolo inverso'],['ABC Gallina', 'ABC Gallina'],['ABC Pinguino', 'ABC Pinguino']]) %>
+    <%= form.select(:nome_micro, [['', ''],['Pettine', 'Pettine'],['Contrarian doji', 'Contrarian doji'],['Rino', 'Rino'],['Chiesa', 'Chiesa'],['Scoiattolo', 'Scoiattolo'],['Scoiattolo inverso', 'Scoiattolo inverso'],['Gallina', 'Gallina'],['Pinguino', 'Pinguino'],['Squalo', 'Squalo'],['ABC Rino', 'ABC Rino'],['ABC Chiesa', 'ABC Chiesa'],['ABC Scoiattolo', 'ABC Scoiattolo'],['ABC Scoiattolo inverso', 'ABC Scoiattolo inverso'],['ABC Gallina', 'ABC Gallina'],['ABC Pinguino', 'ABC Pinguino']]) %>
   </div>
 
   <div class="field">
@@ -179,12 +180,12 @@
 
   <div class="field">
     <%= form.label :prezzo_entrata %>
-    <%= form.number_field :prezzo_entrata, step:0.0001 %>
+    <%= form.number_field :prezzo_entrata, step:0.00001 %>
   </div>
 
   <div class="field">
     <%= form.label :prezzo_sl %>
-    <%= form.number_field :prezzo_sl, step:0.0001 %>
+    <%= form.number_field :prezzo_sl, step:0.00001 %>
   </div>
 
   <div class="field">
@@ -203,7 +204,7 @@
   </div>
 
   <div class="field">
-    <%= form.label "#{:resa} (es. 1.2x)" %>
+    <%= form.label "#{:resa} (es 1,2x)" %>
     <%= form.number_field :resa, step:0.1,min:0.5 %>x
   </div>
 

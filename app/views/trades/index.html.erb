@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Trades</h1>
+<br>
+<%= link_to 'New Trade', new_trade_path %>
+<br>
 
 <table>
   <thead>
@@ -25,7 +28,7 @@
 
   <tbody>
     <% @trades.each do |trade| %>
-      <tr class="<%= trade.risultato == "" ? "incompleto" : trade.risultato %>">
+      <tr class="<%= trade.risultato == "" ? "incompleto" : trade.risultato %><%= trade.esecuzione == "mancato" ? "mancato":"" %>">
         <td><%= trade.symbol %></td>
         <td><%= trade.timeframe %></td>
         <td><%= trade.buy ? "Buy" : "Sell" %></td>
@@ -38,7 +41,16 @@
         <td><%= trade.prezzo_entrata %></td>
         <td><%= trade.prezzo_sl %></td>
         <td><%= trade.resa %>x</td>
-        <td><%= trade.risultato %></td>
+        <% if trade.risultato == "" %>
+          <td>
+            <%= form_with(model: trade, local: true) do |form| %>
+              <%= form.select(:risultato, [['', ''],['Win !!!!!', 'win'],['Free Trade', 'freetrade'],['Loss', 'loss'],['Expire', 'expire'],['Close for news', 'close news']]) %>
+              <%= form.submit %>
+            <% end %>
+          </td>
+        <% else %>
+          <td><%= trade.risultato %></td>
+        <% end %>
         <td><%= trade.confidenza %></td>
         <td><%= link_to 'Show', trade %></td>
         <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
