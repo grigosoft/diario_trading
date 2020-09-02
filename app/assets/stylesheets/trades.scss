@@ -1,3 +1,16 @@
 // Place all the styles related to the Trades controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.win {
+  background-color: rgb(100, 255, 100);
+}
+.loss {
+  background-color: rgb(255, 100, 100);
+}
+.freetrade {
+  background-color: rgb(255, 255, 100);
+}
+
+.mancato {
+  background-color: rgb(200, 200, 255);
+}

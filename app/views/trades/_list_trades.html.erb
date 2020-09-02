@@ -1,0 +1,60 @@
+<div id="filterrific_results">
+  <div>
+    <%= page_entries_info trades  %>
+  </div>
+  <br> <br>
+  <table>
+    <thead>
+      <tr>
+        <th><%= filterrific_sorting_link(@filterrific, :symbol) %></th>
+        <th><%= filterrific_sorting_link(@filterrific, :timeframe) %></th>
+        <th><%= filterrific_sorting_link(@filterrific, :direzione) %></th>
+        <th><%= filterrific_sorting_link(@filterrific, :nome_micro) %></th>
+        <th><%= filterrific_sorting_link(@filterrific, :data_micro) %></th>
+        <th>Macropattern</th>
+        <th><%= filterrific_sorting_link(@filterrific, :rating) %></th>
+        <th>Prezzo entrata</th>
+        <th>Prezzo sl</th>
+        <th><%= filterrific_sorting_link(@filterrific, :resa) %></th>
+        <th><%= filterrific_sorting_link(@filterrific, :esecuzione) %></th>
+        <th><%= filterrific_sorting_link(@filterrific, :risultato) %></th>
+        <th>Confidenza</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% trades.each do |trade| %>
+        <tr class="<%= trade.risultato == "" ? "incompleto" : trade.risultato %><%= trade.esecuzione == "mancato" ? "mancato":"" %>">
+          <td><%= trade.symbol %></td>
+          <td><%= trade.timeframe %></td>
+          <td><%= trade.buy ? "Buy" : "Sell" %></td>
+          <td><%= trade.nome_micro %></td>
+          <td><%= trade.data_micro.strftime('%F|%H:%M') %></td>
+          <td><%= trade.macropattern %></td>
+          <td><%= trade.rating %></td>
+          <td><%= trade.prezzo_entrata %></td>
+          <td><%= trade.prezzo_sl %></td>
+          <td><%= trade.resa %>x</td>
+          <td><%= trade.esecuzione %></td>
+          <% if trade.risultato == "" %>
+            <td>
+              <%= form_with(model: trade, local: true) do |form| %>
+                <%= form.select(:risultato, [['', ''],['Win !!!!!', 'win'],['Free Trade', 'freetrade'],['Loss', 'loss'],['Expire', 'expire'],['Close for news', 'close news']]) %>
+                <%= form.submit %>
+              <% end %>
+            </td>
+          <% else %>
+            <td><%= trade.risultato %></td>
+          <% end %>
+          <td><%= trade.confidenza %></td>
+          <td><%= link_to 'Show', trade %></td>
+          <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
+          <td><%= link_to 'Destroy', trade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+<%= will_paginate trades %>

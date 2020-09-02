@@ -10,10 +10,12 @@ class Trade < ApplicationRecord
   # We define a default sorting by most recent sign up, and then
   # we make a number of filters available through Filterrific.
   filterrific(
-    default_filter_params: { sorted_by: "risultato_desc" },
+    default_filter_params: { sorted_by: "data_micro_desc" },
     available_filters: [
       :sorted_by,
       :search_query,
+      :with_data_micro_da,
+      :with_data_micro_a,
     ],
   )
 
@@ -42,6 +44,15 @@ class Trade < ApplicationRecord
      else
        raise(ArgumentError, "Invalid sort option: #{sort_option.inspect}")
      end
+  }
+  # always include the lower boundary for semi open intervals
+  scope :with_data_micro_da, ->(reference_time) {
+    where("trades.data_micro >= ?", reference_time)
+  }
+
+  # always exclude the upper boundary for semi open intervals
+  scope :with_data_micro_a, ->(reference_time) {
+    where("trades.data_micro < ?", reference_time)
   }
 
   # This method provides select options for the `sorted_by` filter select input.
